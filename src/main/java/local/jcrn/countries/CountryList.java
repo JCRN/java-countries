@@ -6,6 +6,32 @@ public class CountryList
 {
     public ArrayList<Country> countryList = new ArrayList<>();
 
+    public Country findCountry(CheckCountry tester)
+    {
+        for (Country c : countryList)
+        {
+            if (tester.test(c))
+            {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Country> findCountries(CheckCountry tester)
+    {
+        ArrayList<Country> tempCountryList = new ArrayList<>();
+
+        for (Country c : countryList)
+        {
+            if (tester.test(c))
+            {
+                tempCountryList.add(c);
+            }
+        }
+        return tempCountryList;
+    }
+
     public CountryList()
     {
         countryList.add(new Country("China", 1420062022, 9388211, 39));
@@ -211,30 +237,7 @@ public class CountryList
         countryList.add(new Country("Seychelles", 95702, 460, 36));
     }
 
-    public Country findCountry(CheckCountry tester)
-    {
-        for (Country c : countryList)
-        {
-            if (tester.test(c))
-            {
-                return c;
-            }
-        }
-        return null;
-    }
 
-    public ArrayList<Country> findCountries(CheckCountry tester)
-    {
-        ArrayList<Country> tempCountryList = new ArrayList<>();
-
-        for (Country c : countryList)
-        {
-            if (tester.test(c)) {
-                tempCountryList.add(c);
-            }
-        }
-        return tempCountryList;
-    }
 }
 
 
